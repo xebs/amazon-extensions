@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Amazon clicker 2",
+    "description": "This extension will click on and Pay button in the iframe",
+    "version": "1.0.0",
+    "content_scripts":[
+        {
+            "matches": ["https://www.amazon.co.uk/*", "https://www.amazon.de/*", "https://www.amazon.es/*", "https://www.amazon.fr/*", "https://www.amazon.it/*", "https://www.amazon.com/*"],
+            "js": ["script.js"]
+        }
+    ]
+  }

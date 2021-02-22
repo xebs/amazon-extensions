@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Amazon clicker",
+    "description": "This extension will click on Pay in button",
+    "version": "1.0.0",
+    "content_scripts":[
+        {
+            "matches": ["https://www.amazon.co.uk/gp/buy/*", "https://www.amazon.de/gp/buy/*", "https://www.amazon.es/gp/buy/*", "https://www.amazon.fr/gp/buy/*", "https://www.amazon.it/gp/buy/*", "https://www.amazon.com/gp/buy/*"],
+            "js": ["script.js"]
+        }
+    ]
+  }
