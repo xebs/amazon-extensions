@@ -1,6 +1,7 @@
 var reload_time = 3
 
 var url = window.location.href
+var amazon = /Amazon/
 added = false
 
 function add_to_basket(){
@@ -43,15 +44,17 @@ function add_to_basket(){
     }
 }
 
-var wait = 0
+var wait = 0        // for sidebar load
 var options = null
+
 
 function sidebar_add(){
     wait = wait + 1
     console.log("sidebar_add() iter: " + wait);
     options = document.querySelectorAll("#aod-offer-list #aod-offer")
-    if (options.length === 0){
-        // options not loaded yet so wait(ie call this function again using setTimeout)
+    pinned = document.querySelector("#aod-pinned-offer")
+    if (options.length === 0 && pinned ===null){
+        // sidebar not loaded yet so wait(ie call this function again using setTimeout)
         if (wait > 20){
             // stop if wait iteration is more than a number
             if (added === false){reload()}
@@ -61,10 +64,16 @@ function sidebar_add(){
         setTimeout(sidebar_add, 100)
         return
     }
+    // console.log(pinned);
     // console.log(options);
+    if (pinned.querySelector("#aod-offer-shipsFrom span.a-size-small.a-color-base") !==null && amazon.test(pinned.querySelector("#aod-offer-shipsFrom span.a-size-small.a-color-base").innerText)){
+        pinned.querySelector(".a-button-inner input").click()
+        added = true
+        return
+    }
     for (var i = 0; i < options.length; i++){
         dispatchesFrom = options[i].querySelector("#aod-offer-shipsFrom span.a-size-small.a-color-base").innerText
-        if (dispatchesFrom === "Amazon"){
+        if (amazon.test(dispatchesFrom)){
             options[i].querySelector(".a-button-inner input").click()
             added = true
             break
