@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Amazon add to basket",
+    "description": "This extension will add product to basket and checkout.",
+    "version": "1.0.1",
+    "content_scripts":[
+        {
+            "matches": ["https://www.amazon.co.uk/*", "https://www.amazon.de/*", "https://www.amazon.es/*", "https://www.amazon.fr/*", "https://www.amazon.it/*", "https://www.amazon.com/*"],
+            "js": ["script.js"],
+            "run_at" : "document_idle"
+        }
+    ]
+  }
