@@ -2,6 +2,7 @@ var url = window.location.href
 var reload_time = 15
 
 if(document.getElementById("buy-now-button")){
+    skip_additional_protection()
     document.getElementById("buy-now-button").click();
 } else if(document.getElementById("titleSection")){
     if(sessionStorage.getItem(url)){
@@ -17,5 +18,11 @@ if(document.getElementById("buy-now-button")){
         if (reload_time >= 1){
             location.reload()
         }
+    }
+}
+
+function skip_additional_protection(){
+    if (document.querySelector("#siNoCoverage-announce")){
+        document.querySelector("#siNoCoverage-announce").click()
     }
 }
