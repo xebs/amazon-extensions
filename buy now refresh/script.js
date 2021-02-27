@@ -1,9 +1,18 @@
 var url = window.location.href
 var reload_time = 15
 
+var amazon = /Amazon/
+
 if(document.getElementById("buy-now-button")){
-    skip_additional_protection()
-    document.getElementById("buy-now-button").click();
+    if (document.querySelector("#merchant-info") !== null){
+        if (amazon.test(document.querySelector("#merchant-info").innerText)){
+            skip_additional_protection()
+            document.getElementById("buy-now-button").click()
+        }
+    } else{
+        skip_additional_protection()
+        document.getElementById("buy-now-button").click();
+    }
 } else if(document.getElementById("titleSection")){
     if(sessionStorage.getItem(url)){
         let n = sessionStorage.getItem(url)
