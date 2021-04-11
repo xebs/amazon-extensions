@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
   
-    "name": "Amazon refresher",
+    "name": "Amazon refresher mobile",
     "description": "This extension will refresh the page until buynow button appears and click if it is present.",
     "version": "1.1.0",
     "content_scripts":[
