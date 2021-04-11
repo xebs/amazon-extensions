@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Amazon refresher",
+    "description": "This extension will refresh the page until buynow button appears and click if it is present.",
+    "version": "1.1.0",
+    "content_scripts":[
+        {
+            "matches": ["https://www.amazon.co.uk/*", "https://www.amazon.de/*", "https://www.amazon.es/*", "https://www.amazon.fr/*", "https://www.amazon.it/*", "https://www.amazon.com/*"],
+            "js": ["script.js"]
+        }
+    ]
+  }
